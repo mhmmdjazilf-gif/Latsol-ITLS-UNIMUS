@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuis Pilihan Ganda FKG UNIMUS</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1c2433;--mut:#667085;--bd:#d8dee9;--pr:#2f5bea;--ok:#12805c;--okb:#e3f6ee;--no:#c0392b;--nob:#fdeaea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141c;--card:#1a202c;--tx:#e8ecf4;--mut:#9aa5b8;--bd:#2f3a4d;--pr:#6b8cff;--ok:#4fd1a1;--okb:#12352a;--no:#ff8a7a;--nob:#3a1d1d}}
+:root[data-theme="dark"]{--bg:#10141c;--card:#1a202c;--tx:#e8ecf4;--mut:#9aa5b8;--bd:#2f3a4d;--pr:#6b8cff;--ok:#4fd1a1;--okb:#12352a;--no:#ff8a7a;--nob:#3a1d1d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px}
+h1{font-size:1.4rem;margin:0 0 6px}
+.mut{color:var(--mut);font-size:.9rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.bar i{display:block;height:100%;background:var(--pr);transition:width .25s}
+.badge{display:inline-block;background:var(--bg);border:1px solid var(--bd);border-radius:99px;padding:2px 10px;font-size:.8rem;color:var(--mut)}
+.q{font-size:1.1rem;font-weight:600;margin:12px 0 16px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--card);color:var(--tx);border:2px solid var(--bd);border-radius:10px;padding:12px 14px;margin-bottom:10px;font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--pr)}
+.opt b{min-width:24px;height:24px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:.8rem;flex:none}
+.opt.ok{border-color:var(--ok);background:var(--okb)}
+.opt.no{border-color:var(--no);background:var(--nob)}
+.opt:disabled{cursor:default}
+.fb{padding:10px 14px;border-radius:10px;font-weight:600;margin-top:4px}
+.fb.ok{background:var(--okb);color:var(--ok)}
+.fb.no{background:var(--nob);color:var(--no)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px}
+button.b{background:var(--pr);color:#fff;border:0;border-radius:10px;padding:11px 20px;font:inherit;font-weight:600;cursor:pointer}
+button.b.g{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+button.b:disabled{opacity:.4;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px;margin-top:16px}
+.grid button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:6px 0;font:inherit;font-size:.8rem;cursor:pointer}
+.grid button.ok{background:var(--okb);border-color:var(--ok)}
+.grid button.no{background:var(--nob);border-color:var(--no)}
+.grid button.cur{outline:2px solid var(--pr)}
+.score{font-size:3.4rem;font-weight:800;text-align:center;color:var(--pr);margin:10px 0 0}
+.stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:10px 0 18px}
+.stats div{text-align:center}
+.bab{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--bd);font-size:.9rem}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const BAB=["Seven Jump Step dalam PBL","Buku Kurikulum S1 2025","Standar Dokter Gigi","Medical Terms Introduction","Assessment Pembelajaran di FKG","Standar Dokter Gigi (PPT)","Seven Jump Step dalam PBL (PPT)","Modul Tutorial ITLS 2026–2027","Modul Praktikum ITLS 2026–2027","Latihan Soal Pilihan Ganda"];
+const D=`Apa tujuan utama penerapan Problem Based Learning (PBL) dalam pembelajaran? ## Mengutamakan ceramah dosen sepanjang pembelajaran ## Melatih mahasiswa berpikir kritis dan memecahkan masalah ## Menghafalkan seluruh materi tanpa diskusi ## Mengurangi keterlibatan mahasiswa dalam pembelajaran
+Dalam PBL, istilah student-centered learning berarti ... ## Dosen menjadi satu-satunya sumber informasi ## Mahasiswa hanya mendengarkan penjelasan tutor ## Mahasiswa berperan aktif dalam proses pembelajaran ## Mahasiswa tidak membutuhkan bimbingan tutor
+Berapakah jumlah anggota kelompok kecil yang disebutkan dalam materi Small Group Discussion? ## 2–10 orang ## 10–15 orang ## 15–20 orang ## 20–30 orang
+Pada langkah pertama Seven Jump, mahasiswa melakukan ... ## Pelaporan hasil belajar ## Penyusunan laporan kelompok ## Analisis seluruh hipotesis ## Klarifikasi terminologi yang belum dipahami
+Apa keluaran utama dari langkah kedua, yaitu mendefinisikan masalah? ## Catatan hasil belajar mandiri ## Daftar pertanyaan mengenai permasalahan ## Laporan akhir kelompok ## Daftar sumber pustaka
+Dalam langkah ketiga (brainstorming), mahasiswa diharapkan ... ## Langsung menolak pendapat yang berbeda ## Menentukan jawaban akhir tanpa berdiskusi ## Mengemukakan hipotesis berdasarkan pengetahuan awal ## Mencari sumber pustaka secara individual terlebih dahulu
+Apa hasil yang dapat dibuat pada langkah keempat, yaitu analisis masalah? ## Concept map yang menunjukkan hubungan antargagasan ## Daftar kehadiran anggota kelompok ## Jadwal perkuliahan ## Nilai akhir mahasiswa
+Tujuan pembelajaran (Learning Objectives/LO) yang baik seharusnya ... ## Sangat luas agar mencakup semua bidang ilmu ## Tidak perlu disesuaikan dengan waktu yang tersedia ## Hanya mengikuti minat pribadi ketua kelompok ## Terfokus, relevan, dan dapat dicapai dalam waktu yang tersedia
+Pada langkah keenam, yaitu belajar mandiri, mahasiswa sebaiknya ... ## Menunggu seluruh materi dijelaskan oleh tutor ## Mencari informasi yang relevan untuk menjawab LO ## Menghindari penggunaan buku dan jurnal ## Mengulang diskusi tanpa mencari informasi baru
+Apa tujuan utama langkah ketujuh, yaitu diskusi hasil belajar? ## Menggantikan seluruh proses belajar mandiri ## Membuat hipotesis baru tanpa membahas LO ## Menggabungkan hasil belajar mandiri dan mengidentifikasi hal yang belum dipahami ## Menilai mahasiswa hanya berdasarkan kehadiran
+Apa pendekatan utama yang digunakan dalam pengembangan kurikulum Program Studi Kedokteran Gigi UNIMUS? ## Teacher-Based Education ## Outcome-Based Education (OBE) ## Examination-Based Education ## Lecture-Based Education
+Apa kepanjangan dari OBE? ## Outcome-Based Education ## Objective-Based Examination ## Organized Basic Education ## Outcome-Based Evaluation
+Apa keunggulan keilmuan Program Studi Kedokteran Gigi FKG UNIMUS yang tercantum dalam buku kurikulum? ## Radiologi ## Ortodonsia ## Periodonsia ## Biodentistry
+Biodentistry menekankan pada ... ## Perawatan gigi tanpa memperhatikan kondisi tubuh ## Penggunaan bahan sintetis dalam semua perawatan ## Hubungan kesehatan mulut dengan kesehatan tubuh secara keseluruhan ## Penanganan penyakit gigi hanya melalui tindakan bedah
+Berapakah level KKNI untuk jenjang pendidikan sarjana menurut buku kurikulum? ## Level 4 ## Level 6 ## Level 7 ## Level 8
+Manakah yang termasuk profil lulusan Program Studi Kedokteran Gigi UNIMUS? ## Dental Healthcare Provider, Manager, dan Educator ## Surgeon, Pharmacist, dan Nurse ## Researcher, Pharmacist, dan Radiographer saja ## Dentist, Technician, dan Laboratory Assistant saja
+Apa tujuan utama capaian pembelajaran lulusan (CPL)? ## Menentukan jumlah mahasiswa dalam satu kelas ## Mengatur jadwal kegiatan organisasi mahasiswa ## Menentukan biaya seluruh kegiatan perkuliahan ## Merumuskan kemampuan yang diharapkan dimiliki lulusan setelah menyelesaikan pendidikan
+Manakah yang termasuk dalam pengembangan kompetensi lulusan berdasarkan buku kurikulum? ## Mengutamakan kemampuan menghafal tanpa penerapan ## Menghindari kolaborasi dengan profesi kesehatan lain ## Mengembangkan kemampuan klinis, komunikasi, riset, dan profesionalisme ## Membatasi penggunaan teknologi dalam pelayanan kedokteran gigi
+Apa yang dimaksud dengan evidence-based dentistry (EBD) dalam konteks kurikulum? ## Perawatan berdasarkan kebiasaan pribadi tanpa evaluasi ## Pendekatan kedokteran gigi yang menggunakan bukti ilmiah sebagai dasar pengambilan keputusan ## Perawatan yang hanya mengikuti permintaan pasien ## Penggunaan teknologi tanpa mempertimbangkan bukti ilmiah
+Mengapa evaluasi kurikulum dilakukan secara berkala? ## Agar kurikulum tetap relevan dengan perkembangan ilmu, teknologi, regulasi, dan kebutuhan masyarakat ## Agar seluruh mata kuliah dapat dihapus setiap tahun ## Agar mahasiswa tidak perlu mengikuti penilaian ## Agar pembelajaran hanya berfokus pada teori
+Apa saja pokok bahasan utama dalam PPT Standar Dokter Gigi? ## Anatomi gigi, histologi, dan embriologi ## Farmakologi, mikrobiologi, dan fisiologi ## Five Star Doctor, Standar Kompetensi Dokter Gigi Indonesia, dan Standar Dokter Gigi Asia Pasifik ## Manajemen rumah sakit dan administrasi perkantoran saja
+Konsep Five Star Doctor menekankan bahwa dokter ideal memiliki berapa peran utama? ## Tiga ## Lima ## Enam ## Tujuh
+Manakah yang merupakan salah satu peran dalam konsep Five Star Doctor? ## Penghafal (memorizer) ## Pengamat (observer) ## Pelaksana administrasi saja ## Pengambil keputusan (decision-maker)
+Peran communicator dalam konsep Five Star Doctor berarti dokter mampu ... ## Berkomunikasi secara efektif dengan pasien dan pihak terkait ## Menentukan diagnosis tanpa mengumpulkan informasi ## Menghindari diskusi dengan pasien ## Menyerahkan seluruh keputusan kepada pasien tanpa penjelasan
+Peran community leader pada dokter menggambarkan kemampuan untuk ... ## Bekerja hanya di klinik pribadi ## Menghindari kegiatan kesehatan masyarakat ## Berperan dalam menggerakkan dan meningkatkan kesehatan masyarakat ## Membatasi pelayanan hanya kepada kelompok tertentu
+Apa tujuan utama Standar Kompetensi Dokter Gigi Indonesia? ## Menentukan seragam dokter gigi ## Menjadi acuan kompetensi yang harus dimiliki dokter gigi ## Mengatur seluruh kegiatan nonakademik mahasiswa ## Menentukan lokasi praktik semua dokter gigi
+Berdasarkan PPT, standar kompetensi dokter gigi Indonesia diatur melalui ... ## Peraturan organisasi mahasiswa ## Keputusan kepala rumah sakit ## Peraturan fakultas masing-masing saja ## Keputusan Ketua Konsil Kesehatan Indonesia Nomor HK.01.02/KKI/1516/2026
+Mengapa standar kompetensi dokter gigi diperlukan dalam pendidikan dan praktik? ## Untuk menjadi acuan kompetensi dan profesionalisme dokter gigi ## Untuk menghilangkan kebutuhan pembelajaran klinis ## Untuk membatasi perkembangan ilmu kedokteran gigi ## Untuk menggantikan seluruh proses evaluasi pendidikan
+Apa yang menjadi salah satu fokus pembahasan dalam Standar Dokter Gigi Asia Pasifik? ## Sistem pendidikan sekolah menengah ## Standar pengelolaan keuangan universitas ## Standar dokter gigi pada lingkup kawasan Asia Pasifik ## Kurikulum seluruh program studi nonkesehatan
+Seorang dokter gigi tidak hanya melakukan perawatan klinis, tetapi juga memberikan edukasi dan mendorong pencegahan penyakit gigi di masyarakat. Perilaku tersebut paling mencerminkan ... ## Peran administratif semata ## Pendekatan dokter yang berorientasi pada pelayanan dan kesehatan masyarakat ## Peran yang hanya berfokus pada penelitian laboratorium ## Tugas yang hanya dilakukan oleh tenaga administrasi
+Awalan *erythro-* menunjukkan warna … ## Putih ## Merah ## Biru ## Hitam
+Awalan *leuko-* memiliki arti … ## Hijau ## Kuning ## Putih ## Merah
+Awalan *mono-* atau *uni-* berarti … ## Satu ## Dua ## Tiga ## Setengah
+Awalan *bi-* menunjukkan jumlah … ## Satu ## Dua ## Empat ## Banyak
+Awalan *semi-* dan *hemi-* berarti … ## Seluruh ## Setengah ## Di antara ## Di bawah
+Awalan *hyper-* menunjukkan kondisi … ## Di bawah normal ## Tidak ada ## Di atas normal ## Berjumlah sedikit
+Istilah *micro-* berarti … ## Besar ## Kecil ## Baru ## Cepat
+Awalan *tachy-* berarti … ## Lambat ## Mundur ## Cepat ## Berulang
+Awalan *post-* memiliki arti … ## Sebelum ## Sesudah ## Di dalam ## Di sekitar
+Istilah *interdental* mengacu pada posisi … ## Di dalam gigi ## Di antara gigi ## Di bawah gusi ## Di belakang gigi
+Apa tujuan utama metode tutorial dalam pembelajaran kelompok kecil? ## Menghafal materi tanpa diskusi ## Mengembangkan pemikiran kritis dan pemecahan masalah ## Menggantikan semua kegiatan praktikum ## Mengukur keterampilan menggunakan alat
+Dalam metode tutorial, apa peran utama tutor? ## Memberikan semua jawaban ## Menentukan seluruh hasil diskusi ## Memfasilitasi proses belajar mahasiswa ## Menggantikan mahasiswa saat presentasi
+Apa tujuan utama kegiatan skills lab? ## Menguasai keterampilan prosedural dan psikomotor ## Menghafal teori saja ## Menyusun laporan penelitian ## Menguji kemampuan membaca
+Media apa yang dapat digunakan mahasiswa saat berlatih di skills lab? ## Buku catatan saja ## Manekin, model, atau alat simulasi ## Kuesioner penelitian saja ## Jurnal ilmiah saja
+Kegiatan praktikum terutama bertujuan untuk … ## Melatih komunikasi dengan pasien saja ## Menghafal istilah medis ## Melakukan percobaan dan menganalisis hasil ## Menilai kemampuan presentasi saja
+Apa yang harus diperhatikan selama praktikum di laboratorium? ## Kecepatan menyelesaikan tugas saja ## Ketelitian, prosedur sistematis, dan keselamatan ## Jumlah laporan yang dibuat ## Kemampuan menghafal tanpa praktik
+SOCA merupakan singkatan dari … ## Student Oral Case Analysis ## Standard Objective Clinical Assessment ## Student Observation and Clinical Action ## Structured Oral Clinical Assignment
+Apa yang dinilai dalam SOCA berdasarkan materi presentasi? ## Kemampuan menghitung biaya perawatan saja ## Kemampuan penalaran klinis, berpikir kritis, dan komunikasi ## Kecepatan mengetik laporan ## Kemampuan menghafal seluruh buku
+Apa kepanjangan OSCE? ## Objective Structured Clinical Examination ## Oral Student Clinical Evaluation ## Objective Student Case Education ## Organized Skills Clinical Exercise
+Dalam soal MCQ, apa fungsi distractor? ## Menjadi jawaban benar pada semua soal ## Memberikan petunjuk langsung ke jawaban ## Menjadi pilihan jawaban pengecoh yang masuk akal ## Menggantikan pertanyaan Utama
+Konsep Five Star Doctor menggambarkan dokter yang memiliki .... ## Kemampuan mengobati penyakit saja ## Berbagai peran dan kompetensi dalam pelayanan kesehatan ## Kemampuan melakukan penelitian saja ## Kemampuan mengelola rumah sakit saja
+Salah satu peran dokter dalam konsep Five Star Doctor adalah care provider, yang berarti .... ## Pemberi pelayanan kesehatan ## Pengelola keuangan rumah sakit ## Peneliti di bidang teknologi ## Pengawas administrasi
+Peran decision maker pada konsep Five Star Doctor berkaitan dengan kemampuan .... ## Menghindari tanggung jawab ## Menentukan keputusan yang tepat berdasarkan informasi ## Menyerahkan semua keputusan kepada pasien ## Mengutamakan kepentingan pribadi
+Peran communicator menekankan pentingnya kemampuan .... ## Mengelola anggaran ## Melakukan tindakan tanpa penjelasan ## Berkomunikasi secara efektif ## Menyusun laporan keuangan
+Standar kompetensi dokter gigi diperlukan terutama untuk .... ## Menyamakan seluruh metode pengobatan tanpa mempertimbangkan kondisi pasien ## Menjadi acuan kemampuan yang harus dimiliki dokter gigi ## Membatasi pengembangan ilmu kedokteran gigi ## Menggantikan seluruh proses pendidikan klinis
+Salah satu manfaat standar kompetensi dalam pendidikan dokter gigi adalah .... ## Menjadi pedoman pencapaian kompetensi lulusan ## Menghilangkan kebutuhan evaluasi ## Mengurangi tanggung jawab profesional ## Menggantikan kebutuhan belajar mandiri
+Dokter gigi yang mampu menjelaskan diagnosis dan perawatan kepada pasien menunjukkan peran .... ## Manager ## Communicator ## Researcher ## Administrator
+Pemahaman terhadap standar kompetensi dokter gigi membantu memastikan bahwa .... ## Semua pasien mendapatkan tindakan yang sama ## Pendidikan dan kemampuan profesional memiliki acuan yang jelas ## Dokter tidak perlu memperbarui pengetahuan ## Pelayanan hanya berfokus pada tindakan teknis
+Standar dokter gigi tingkat Asia Pasifik berguna sebagai acuan untuk memahami .... ## Kompetensi dokter gigi dalam konteks regional ## Sistem administrasi satu rumah sakit ## Jadwal kuliah mahasiswa ## Pengelolaan keuangan klinik
+Hubungan antara Five Star Doctor dan standar kompetensi dokter gigi adalah .... ## Keduanya hanya membahas keterampilan teknis ## Keduanya berkaitan dengan peran dan kemampuan profesional dokter ## Keduanya hanya berlaku bagi dokter yang bekerja di rumah sakit ## Keduanya menggantikan pendidikan formal
+Kepanjangan PBL adalah .... ## Practice Based Learning ## Problem Based Learning ## Professional Basic Learning ## Program Based Lecture
+Dalam pendekatan Student Centered Learning (SCL), mahasiswa berperan sebagai .... ## Penerima informasi secara pasif ## Pengamat tanpa keterlibatan ## Peserta aktif dalam proses pembelajaran ## Pendengar penjelasan dosen saja
+Tujuan langkah pertama dalam Seven Jump Step adalah .... ## Menyusun laporan akhir ## Mengklarifikasi istilah yang belum dipahami ## Menentukan nilai mahasiswa ## Membuat kesimpulan akhir
+Pada langkah kedua Seven Jump Step, mahasiswa melakukan .... ## Identifikasi masalah ## Ujian tertulis ## Penyusunan laporan praktikum ## Evaluasi dosen
+Brainstorming dalam tutorial PBL bertujuan untuk .... ## Mengumpulkan berbagai ide yang berkaitan dengan masalah ## Memilih satu pendapat tanpa diskusi ## Menghindari perbedaan pendapat ## Menentukan nilai akhir kelompok
+Analisis masalah dilakukan untuk .... ## Menghafalkan seluruh materi ## Menghubungkan berbagai informasi dan memahami masalah ## Mengakhiri diskusi secepat mungkin ## Menggantikan kegiatan belajar mandiri
+Learning Objectives (LO) merupakan .... ## Daftar nilai mahasiswa ## Tujuan pembelajaran yang harus dicapai ## Jadwal kegiatan tutorial ## Daftar kehadiran kelompok
+Pada langkah belajar mandiri, mahasiswa sebaiknya .... ## Menunggu tutor memberikan semua jawaban ## Mencari sumber informasi yang relevan untuk mencapai LO ## Menghindari membaca jurnal ## Mengulang diskusi tanpa mencari informasi baru
+Dalam tutorial, tugas scribe adalah .... ## Memimpin seluruh kegiatan perkuliahan ## Mencatat hasil diskusi dan poin-poin penting ## Memberikan nilai kepada tutor ## Menentukan jadwal ujian fakultas
+Pada langkah ketujuh Seven Jump Step, mahasiswa melakukan .... ## Klarifikasi terminologi saja ## Identifikasi masalah saja ## Diskusi hasil belajar mandiri dan sintesis informasi ## Pemilihan anggota kelompok baru
+ITLS merupakan singkatan dari .... ## Information Technology and Learning Skill ## International Training and Learning System ## Information Tutorial and Laboratory Science ## Integrated Technology and Learning System
+Salah satu fokus blok ITLS adalah .... ## Pengelolaan keuangan perusahaan ## Teknologi informasi dan keterampilan belajar ## Teknik pembangunan gedung ## Administrasi perdagangan
+Dalam tutorial PBL, tutor berperan terutama sebagai .... ## Pemberi seluruh jawaban masalah ## Fasilitator proses diskusi dan pembelajaran ## Pengganti seluruh anggota kelompok ## Penguji pada setiap diskusi
+Belajar mandiri dalam PBL dilakukan untuk .... ## Menghindari diskusi kelompok ## Memperdalam informasi yang dibutuhkan untuk menjawab LO ## Menggantikan seluruh kegiatan pembelajaran ## Mengurangi kebutuhan membaca sumber ilmiah
+Berdasarkan modul, langkah 1–5 dalam tutorial dilaksanakan pada .... ## Pertemuan pertama ## Pertemuan kedua ## Ujian akhir ## Praktikum terakhir
+Langkah keenam dalam tutorial PBL merupakan kegiatan .... ## Kuliah umum ## Belajar mandiri ## Ujian praktik ## Penilaian akhir
+Langkah ketujuh tutorial dilaksanakan pada .... ## Pertemuan pertama saja ## Pertemuan kedua ## Sebelum skenario dibagikan ## Saat ujian masuk
+Manakah yang termasuk sumber belajar mandiri menurut modul? ## Jurnal ilmiah dan buku teks ## Percakapan tanpa sumber pendukung saja ## Informasi yang tidak dapat diverifikasi ## Pendapat pribadi tanpa penelusuran
+Suasana diskusi tutorial yang baik seharusnya mengutamakan .... ## Persaingan dan dominasi satu anggota ## Keterbukaan, kejujuran, dan saling menghargai ## Larangan mengemukakan pendapat ## Penerimaan satu pendapat tanpa pembahasan
+Jika seorang anggota kelompok pasif selama diskusi, ketua diskusi sebaiknya .... ## Mengabaikannya sampai diskusi selesai ## Memberinya kesempatan untuk menyampaikan ide dan pertanyaan ## Mengeluarkannya dari kelompok ## Menghentikan diskusi kelompok
+Perbedaan utama SCL dan TCL adalah .... ## SCL berpusat pada mahasiswa, sedangkan TCL berpusat pada dosen ## SCL tidak membutuhkan tujuan pembelajaran ## TCL selalu menggunakan praktikum ## TCL mengharuskan mahasiswa belajar mandiri tanpa dosen
+Refleksi diri dalam pembelajaran bertujuan untuk .... ## Menghindari evaluasi kemampuan ## Mengenali pengalaman, kekuatan, kelemahan, dan kebutuhan perbaikan diri ## Membandingkan nilai tanpa mengevaluasi proses ## Menggantikan seluruh proses belajar
+Manakah yang merupakan contoh asesmen dalam pendidikan kedokteran gigi berdasarkan modul? ## OSCE ## Rekreasi kelompok ## Pemilihan ketua kelas ## Kegiatan olahraga
+OSCE merupakan salah satu bentuk asesmen yang digunakan untuk menilai .... ## Keterampilan klinis melalui stasiun ujian terstruktur ## Kehadiran mahasiswa saja ## Kemampuan mengelola keuangan ## Jumlah buku yang dimiliki mahasiswa
+Tujuan utama literature searching adalah .... ## Menemukan informasi ilmiah yang relevan dan terkini ## Mengumpulkan artikel tanpa membaca isinya ## Menghindari penggunaan bukti ilmiah ## Menggantikan seluruh proses penelitian
+Manakah yang merupakan sumber pencarian literatur ilmiah yang disebutkan dalam modul? ## PubMed ## Aplikasi permainan ## Media hiburan saja ## Situs jual beli
+Mengenali gaya belajar diri sendiri bermanfaat untuk .... ## Menentukan metode belajar yang sesuai dengan kebutuhan diri ## Menghindari seluruh metode pembelajaran lain ## Menghilangkan kebutuhan evaluasi ## Menyamakan cara belajar semua mahasiswa
+Mind mapping adalah metode yang digunakan untuk .... ## Menyusun dan menghubungkan gagasan secara visual ## Menghitung nilai ujian secara otomatis ## Menggantikan seluruh bahan bacaan ## Menyusun daftar kehadiran
+Dalam berpikir kritis, fakta objektif berbeda dari fakta subjektif karena fakta objektif .... ## Hanya berdasarkan perasaan pribadi ## Dapat diperiksa berdasarkan bukti dan tidak semata-mata bergantung pada pendapat pribadi ## Selalu berasal dari pengalaman satu orang ## Tidak memerlukan verifikasi
+Penalaran induktif adalah proses berpikir yang bergerak dari .... ## Pernyataan umum menuju kasus khusus ## Kasus atau pengamatan khusus menuju kesimpulan umum ## Kesimpulan menuju asumsi tanpa bukti ## Pendapat pribadi menuju pendapat pribadi lainnya
+Visi dari Fakultas Kedokteran Gigi (FKG) UNIMUS adalah menjadi fakultas yang unggul berkarakter berbasis teknologi dan bereputasi internasional pada tahun... ## 2030 ## 2035 ## 2040 ## 2045 ## 2050
+Berdasarkan rekomendasi WHO, kondisi ideal rasio pelayanan dokter gigi di Indonesia adalah 1 orang dokter gigi melayani... ## 1.000 pasien ## 5.000 pasien ## 7.500 pasien ## 10.000 pasien ## 12.000 pasien
+Berdasarkan data Survei Kesehatan Indonesia 2023, jumlah total dokter gigi di Indonesia saat ini tercatat sebanyak... ## 25.120 orang ## 35.193 orang ## 42.500 orang ## 50.110 orang ## 75.000 orang
+Kegiatan yang dikembangkan di lingkungan Direktorat Pembelajaran dan Kemahasiswaan (BELMAWA) KEMENDIKBUD pada akhir tahun 2009 untuk menanggapi tantangan sektor pendidikan dan ketenagakerjaan adalah... ## SNPT ## KKNI ## SKI ## KKI ## MBKM
+Kerangka penjenjangan kualifikasi sumber daya manusia Indonesia yang menyandingkan, menyetarakan, dan mengintegrasikan sektor pendidikan dengan pelatihan dan pengalaman kerja disebut... ## SKL ## KKNI ## KKI ## SN Dikti ## Kerangka Mutu Nasional
+Secara konseptual, setiap jenjang kualifikasi dalam KKNI disusun oleh berapa parameter utama... ## 4 parameter ## 5 parameter ## 6 parameter ## 7 parameter ## 9 parameter
+Ketentuan lebih lanjut mengenai penerapan KKNI di jalur pendidikan diatur melalui... ## Permendikbud Nomor 3 Tahun 2020 ## Undang-Undang Nomor 12 Tahun 2012 ## Peraturan Presiden Nomor 8 Tahun 2012 ## Permenristekdikti Nomor 44 Tahun 2015 ## Keputusan Menteri Kesehatan Nomor 20 Tahun 2021
+Berdasarkan penyetaraan pada KKNI, lulusan pendidikan dasar (SMP) setara dengan... ## Jenjang 1 ## Jenjang 2 ## Jenjang 3 ## Jenjang 4 ## Jenjang 5
+Berdasarkan kesetaraan jenjang pada KKNI, lulusan Diploma 3 (D3) paling rendah setara dengan... ## Jenjang 3 ## Jenjang 4 ## Jenjang 5 ## Jenjang 6 ## Jenjang 7
+Berdasarkan kesetaraan jenjang pada KKNI, lulusan program pendidikan Sarjana (S1) atau Sarjana Terapan paling rendah setara dengan... ## Jenjang 4 ## Jenjang 5 ## Jenjang 6 ## Jenjang 7 ## Jenjang 8
+Lulusan pendidikan profesi dalam penjenjangan KKNI setara dengan... ## Jenjang 5 atau 6 ## Jenjang 6 atau 7 ## Jenjang 7 atau 8 ## Jenjang 8 atau 9 ## Jenjang 9
+Lulusan pendidikan spesialis dalam penjenjangan KKNI setara dengan... ## Jenjang 6 atau 7 ## Jenjang 7 atau 8 ## Jenjang 8 atau 9 ## Jenjang 5 atau 6 ## Jenjang 4 atau 5
+Penyelenggaraan pendidikan dokter gigi ditujukan untuk menghasilkan lulusan yang kompeten, yang terdiri dari 7 profil lulusan dokter gigi Indonesia ditambah dengan 1 profil unggulan. Berapa total profil lulusan yang dimiliki FKG Unimus? ## 6 profil ## 7 profil ## 8 profil ## 9 profil ## 10 profil
+Profil lulusan dokter gigi Indonesia yang mampu menangani pasien secara holistik, baik sebagai individu, keluarga, maupun masyarakat, disebut sebagai... ## Communicator ## Decision Maker ## Care Provider ## Community Leader ## Manager
+Profil lulusan yang mampu memilih teknologi tepat guna untuk mempertinggi pelayanan kesehatan yang layak dan berbiaya murah adalah... ## Decision Maker ## Manager ## Creator and Innovator ## Lecturer / Researcher ## Care Provider
+Seseorang yang mampu meningkatkan gaya hidup sehat dengan penyuluhan efektif dan nasihat tepat dalam konteks budaya dan ekonomi termasuk dalam profil lulusan... ## Care Provider ## Communicator ## Community Leader ## Manager ## Creator and Innovator
+Seseorang yang karena kehormatan dan kepercayaan masyarakat mampu mengetahui kebutuhan kesehatan serta memotivasi masyarakat berpartisipasi meningkatkan kesehatan disebut... ## Manager ## Communicator ## Community Leader ## Lecturer / Researcher ## Care Provider
+Profil lulusan yang bertindak sebagai pendidik profesional dan ilmuwan yang mampu mengembangkan diri sesuai kemajuan IPTEKS melalui penelitian adalah... ## Manager ## Community Leader ## Communicator ## Creator and Innovator ## Lecturer / Researcher
+Profil lulusan unggulan khas yang dimiliki oleh FKG Unimus adalah... ## Professional Care Dentist ## Islamic Community Care Dentist ## Technology Based Dentist ## Global Standard Dentist ## Community Health Leader
+Apa produk inovasi dari Program Kreativitas Mahasiswa Kewirausahaan (PKM-K) FKG Unimus yang ditujukan untuk Gingival Brightening pada Smoker's Melanosis? ## White to Clean Gel ## Black to Pink Gel ## Herbal Dental Paste ## Smile Bright Gel ## Gingiva Care Extract`;
+</script>
+<script>
+const KEY=["A","B","C","D","E"];
+// kunci jawaban resmi (110 soal, urut)
+const AK=["B","C","A","D","B","C","A","D","B","C","B","A","D","C","B","A","D","C","B","A","C","B","D","A","C","B","D","A","C","B","B","C","A","B","B","C","B","C","B","B","B","C","A","B","C","B","A","B","A","C","B","A","B","C","B","A","B","B","A","B","B","C","B","A","A","B","B","B","B","C","A","B","B","B","A","B","B","A","B","B","A","B","A","A","A","A","A","A","B","B","C","C","B","B","B","C","A","A","C","C","C","C","C","C","A","B","C","E","B","B"];
+const Q=D.split("\n").map((l,i)=>{const p=l.split(" ## ");const a=AK[i];return{t:p[0],o:p.slice(1),a:KEY.indexOf(a),b:i<10?0:i<20?1:i<30?2:i<40?3:i<50?4:i<60?5:i<70?6:i<80?7:i<90?8:9}});
+const app=document.getElementById("app");
+let cur=0,ans=new Array(Q.length).fill(null),started=false;
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const fmt=s=>esc(s).replace(/\*(.+?)\*/g,"<i>$1</i>");
+function start(){started=true;cur=0;ans.fill(null);render()}
+function render(){
+ if(!started){app.innerHTML=`<div class="card"><h1>Kuis Pilihan Ganda FKG UNIMUS</h1><p class="mut">${Q.length} soal dalam ${BAB.length} bab. Satu soal per halaman, jawaban langsung diperiksa, nilai akhir ditampilkan di akhir.</p><button class="b" onclick="start()">Mulai Kuis</button></div>`;return}
+ const q=Q[cur],c=ans[cur],done=ans.filter(x=>x!==null).length;
+ const opts=q.o.map((t,i)=>{let cl="";if(c!==null){if(i===q.a)cl="ok";else if(i===c)cl="no"}
+  return `<button class="opt ${cl}" ${c!==null?"disabled":""} onclick="pick(${i})"><b>${KEY[i]}</b><span>${fmt(t)}</span></button>`}).join("");
+ const fb=c===null?"":c===q.a?`<div class="fb ok">✓ Benar!</div>`:`<div class="fb no">✗ Salah. Jawaban benar: ${KEY[q.a]}. ${fmt(q.o[q.a])}</div>`;
+ const grid=Q.map((x,i)=>`<button class="${ans[i]===null?"":ans[i]===x.a?"ok":"no"} ${i===cur?"cur":""}" onclick="go(${i})">${i+1}</button>`).join("");
+ app.innerHTML=`<div class="top"><span class="badge">Bab ${q.b+1}: ${esc(BAB[q.b])}</span><span class="mut">Terjawab ${done}/${Q.length}</span></div>
+ <div class="bar"><i style="width:${(cur+1)/Q.length*100}%"></i></div>
+ <div class="card"><div class="mut">Soal ${cur+1} dari ${Q.length}</div><div class="q">${fmt(q.t)}</div>${opts}${fb}
+ <div class="nav"><button class="b g" ${cur===0?"disabled":""} onclick="go(cur-1)">← Sebelumnya</button>
+ ${cur===Q.length-1?`<button class="b" onclick="finish()">Selesai</button>`:`<button class="b" onclick="go(cur+1)">Selanjutnya →</button>`}</div></div>
+ <div class="grid">${grid}</div><div style="margin-top:14px;text-align:center"><button class="b g" onclick="finish()">Lihat Hasil Akhir</button></div>`;
+}
+function pick(i){if(ans[cur]===null){ans[cur]=i;render()}}
+function go(i){cur=i;render();window.scrollTo(0,0)}
+function finish(){
+ const un=ans.filter(x=>x===null).length;
+ if(un&&!confirm(`Masih ada ${un} soal belum dijawab. Tetap lihat hasil?`))return;
+ const ok=Q.filter((q,i)=>ans[i]===q.a).length,wr=Q.filter((q,i)=>ans[i]!==null&&ans[i]!==q.a).length;
+ const nilai=(ok/Q.length*100).toFixed(1).replace(/\.0$/,"");
+ const bab=BAB.map((n,b)=>{const idx=Q.map((q,i)=>i).filter(i=>Q[i].b===b);const k=idx.filter(i=>ans[i]===Q[i].a).length;return `<div class="bab"><span>Bab ${b+1}: ${esc(n)}</span><b>${k}/${idx.length}</b></div>`}).join("");
+ app.innerHTML=`<div class="card"><h1 style="text-align:center">Hasil Akhir</h1><div class="score">${nilai}</div><div class="mut" style="text-align:center">dari 100</div>
+ <div class="stats"><div><b style="color:var(--ok);font-size:1.4rem">${ok}</b><div class="mut">Benar</div></div><div><b style="color:var(--no);font-size:1.4rem">${wr}</b><div class="mut">Salah</div></div><div><b style="font-size:1.4rem">${un}</b><div class="mut">Kosong</div></div></div>
+ ${bab}<div class="nav"><button class="b g" onclick="go(0)">Tinjau Soal</button><button class="b" onclick="start()">Ulangi Kuis</button></div></div>`;
+ window.scrollTo(0,0);
+}
+render();
+</script>
+</body>
+</html>
